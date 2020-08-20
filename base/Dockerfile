@@ -1,4 +1,4 @@
-FROM phusion/baseimage
+FROM phusion/baseimage:latest-amd64
 MAINTAINER Vladimir Kunin <vladimir@knowitop.ru>
 
 ARG DEBIAN_FRONTEND=noninteractive
