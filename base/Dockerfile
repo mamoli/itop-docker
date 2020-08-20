@@ -37,11 +37,12 @@ RUN chmod +x -R /etc/service \
     && chmod +x /*.sh \
     && a2enconf fqdn
 
-# Create shortcuts for the right management scripts, get latest Russian translations and fix rights
+# Create shortcuts for the right management scripts and fix rights
 RUN ln -s /make-itop-config-writable.sh /usr/local/bin/conf-w \
     && ln -s /make-itop-config-read-only.sh /usr/local/bin/conf-ro \
-    && /update-russian-translations.sh \
     && chown -R www-data:www-data /var/www/html
+
+VOLUME /var/www/html/conf /var/www/html/data /var/www/html/env-production /var/www/html/log /var/www/html/extensions
 
 EXPOSE 80
 
