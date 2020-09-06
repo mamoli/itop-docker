@@ -1,15 +1,15 @@
 # Docker image with Combodo iTop
 
-Starting from 2.5.0-beta the image is based on [phusion/baseimage](https://hub.docker.com/r/phusion/baseimage/) and uses runit to manage services (apache, mysql, etc).
+The image is based on [phusion/baseimage](https://hub.docker.com/r/phusion/baseimage/) and uses runit to manage services (apache, mysql, etc).
 
 [![](https://images.microbadger.com/badges/version/vbkunin/itop.svg)](http://microbadger.com/images/vbkunin/itop "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/vbkunin/itop.svg)](https://microbadger.com/images/vbkunin/itop "Get your own image badge on microbadger.com")
 
 ## Usage
 
-Run new iTop 2.7.0-beta (see tags for other iTop versions) container named *my-itop*:
+Run new iTop 2.7.1 (see tags for other iTop versions) container named *my-itop*:
 ```
-sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:2.7.0-beta
+sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:2.7.1
 ```
 Then go to [http://localhost:8000/](http://localhost:8000/) to continue the installation.
 
@@ -21,7 +21,7 @@ or use username *root* with blank password.
 
 Expose iTop extensions folder if you need it:
 ```
-sudo docker run -d -p 8000:80 --name=my-itop -v /home/user/itop-extensions:/var/www/html/extensions vbkunin/itop:2.7.0-beta
+sudo docker run -d -p 8000:80 --name=my-itop -v /home/user/itop-extensions:/var/www/html/extensions vbkunin/itop:2.7.1
 ```
 
 ### Image without MySQL
@@ -29,7 +29,7 @@ sudo docker run -d -p 8000:80 --name=my-itop -v /home/user/itop-extensions:/var/
 Starting from 2.6.0 you can get `base` image without MySQL database server (only Apache and PHP) to use with your own one:
 
 ```
-sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:2.7.0-beta-base
+sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:2.7.1-base
 ```
 
 ### Useful scripts and helpers
@@ -48,7 +48,7 @@ A cron setup helper is aboard:
 ```
 sudo docker exec my-itop /setup-itop-cron.sh Cron Pa$5w0rD
 ```
-Then you should create iTop user account with login *Cron* and password *Pa$5w0rD* and grant him Administrator profile. Starting from v2.3.3 the third argument (optional) is the absolute path to the log file or `--without-logs` key. By default, the log file is `/var/log/itop-cron.log`.
+Then you should create iTop user account with login *Cron* and password *Pa$5w0rD* and grant him Administrator profile. The third argument (optional) is the absolute path to the log file or `--without-logs` key. By default, the log file is `/var/log/itop-cron.log`.
 
 There are other scripts:
 
